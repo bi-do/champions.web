@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Champions from "./page/Champions";
+import Login from "./page/Login";
+import Nav from "./component/Nav";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import PrivateRoute from "./Route/PrivateRoute";
+import detail from "./page/Detail";
+import { useEffect } from "react";
+import Detail from "./page/Detail";
 
 function App() {
+  const [userlogin, setuserlogin] = useState(false);
+
+  const [championdata, setchampiondata] = useState([]);
+
+  const test = async () => {
+    let url = new URL(
+      "http://ddragon.leagueoflegends.com/cdn/13.16.1/data/ko_KR/champion.json"
+    );
+
+    let response = await fetch(url);
+
+    let data = await response.json();
+    const champions = Object.values(data.data);
+    setchampiondata(champions);
+   
+  };
+  
+  useEffect(() => {
+    test();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Champions championdata={championdata} setchampiondata={setchampiondata}/>} />
+        <Route
+          path="/login"
+          element={<Login setuserlogin={setuserlogin} userlogin={userlogin} />}
+        />
+        <Route
+          path="/detail/:id"
+          element={<PrivateRoute userlogin={userlogin}/>}
+        />
+      
+      </Routes>
+    </BrowserRouter>
   );
 }
 
