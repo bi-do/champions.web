@@ -19,7 +19,7 @@ const Detail = () => {
 
   let championapi = async () => {
     let curl = new URL(
-      `http://ddragon.leagueoflegends.com/cdn/13.16.1/data/ko_KR/champion/${chamid}.json`
+      `https://ddragon.leagueoflegends.com/cdn/13.16.1/data/ko_KR/champion/${chamid}.json`
     );
 
     let cresponse = await fetch(curl);
