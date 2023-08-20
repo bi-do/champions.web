@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 
 const Detail = () => {
@@ -13,6 +13,7 @@ const Detail = () => {
   const [skillsdescription, setskillsdescription] = useState("");
   const [skilltitle, setskilltitle] = useState("");
   const [passivein, setpassivein] = useState("");
+  const [championskins, setchampionskins] = useState([]);
   let chamid = params.id;
 
   const championscreen = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${chamid}_0.jpg`;
@@ -32,7 +33,10 @@ const Detail = () => {
     let pogi2 = chinfo[0]?.tags[1];
     let chamname = chinfo[0]?.name;
     let passivelet = chinfo[0]?.passive;
+    let skinsdelete = chinfo[0]?.skins.splice(0, 1);
+    let skins = chinfo[0]?.skins;
 
+    setchampionskins(skins);
     setpassivein(passivelet);
     setskills(skill);
     setchampionname(chamname);
@@ -40,7 +44,7 @@ const Detail = () => {
     setposition2(pogi2);
     setchampioninfo(chat);
     setchampionpassive(skillp);
-    console.log(chinfo);
+    console.log(skins);
   };
   useEffect(() => {
     championapi();
@@ -60,8 +64,18 @@ const Detail = () => {
     <div className="champion-back">
       <Container className="champion-info">
         <div className="champion-splash">
-          <img src={championscreen}></img>
-          <h1 className="champion-name">{championname}</h1>
+          <Carousel>
+            {championskins.map((item) => (
+              <Carousel.Item>
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${chamid}_${item.num}.jpg`}
+                />
+                <Carousel.Caption>
+                  <h1>{item.name}</h1>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
         </div>
         <Row className="position-box">
           <Col lg={6} sm={12} className="position-img">
@@ -80,7 +94,7 @@ const Detail = () => {
         <div className="skills">
           <h1>스킬</h1>
           <Row className="skills-intro">
-            <Col lg={5} sm={12}className="skills-img">
+            <Col lg={5} sm={12} className="skills-img">
               <div>
                 <img
                   src={`https://ddragon.leagueoflegends.com/cdn/13.16.1/img/passive/${championpassive}`}
@@ -96,7 +110,7 @@ const Detail = () => {
                 </div>
               ))}
             </Col>
-            <Col lg={6} sm={12}className="skill-text">
+            <Col lg={6} sm={12} className="skill-text">
               <div className="skill-title">{skilltitle}</div>
               {skillsdescription}
             </Col>

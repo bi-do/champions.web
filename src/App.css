@@ -161,6 +161,13 @@ body {
   width: 60vw;
 }
 
+.champion-splash h1{
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: black;
+  text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
+}
+
 @media screen and (max-width:500px) {
   
   .skills-img img{
