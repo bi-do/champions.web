@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Nav = ({userlogin,setuserlogin,setpositionstate}) => {
   const positionlist = ["Assassin", "Fighter", "Tank", "Marksman", "Mage", "Support"];
@@ -11,7 +11,7 @@ const Nav = ({userlogin,setuserlogin,setpositionstate}) => {
     homenavigate("/");
   };
   const userlog = () => {
-    if (userlogin == true) {
+    if (userlogin === true) {
       setuserlogin(!userlogin);
     } else {
       homenavigate("/login");
@@ -34,7 +34,7 @@ const Nav = ({userlogin,setuserlogin,setpositionstate}) => {
       <div>
         <div className="login-button" onClick={userlog}>
           <FontAwesomeIcon icon={faUser} />
-          <div>{userlogin == true ? "로그아웃" : "로그인"}</div>
+          <div>{userlogin === true ? "로그아웃" : "로그인"}</div>
         </div>
       </div>
       <div className="imgbox">

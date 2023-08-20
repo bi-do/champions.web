@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 
 const Champions = ({positionstate,setpositionstate}) => {
   const [championdata, setchampiondata] = useState([]);
-  const [query, setquery] = useSearchParams();
+  const [query] = useSearchParams();
 
   const test = async () => {
     let searchquery = query.get("q") || "";
@@ -19,19 +19,19 @@ const Champions = ({positionstate,setpositionstate}) => {
     let data = await response.json();
     const champions = Object.values(data.data);
    
-    if (searchquery == "") {
+    if (searchquery === "") {
       setchampiondata(champions);
       
     } else {
       let searchfilter = champions.filter((item) => {
-        return item.name == searchquery;
+        return item.name === searchquery;
       });
       setchampiondata(searchfilter);
       setpositionstate("")
     }
     if (positionstate != "") {
       let positionfilter = champions.filter((item) => {
-        return item.tags[0] == positionstate || item.tags[1] == positionstate;
+        return item.tags[0] === positionstate || item.tags[1] === positionstate;
       });
       console.log('찍고있음')
       setchampiondata(positionfilter);

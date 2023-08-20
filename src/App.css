@@ -19,11 +19,13 @@ body {
 .position-list {
   display: flex;
   list-style-type: none;
+  
 }
 
 .position-list li {
   padding: 0px 20px;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .position-area {
