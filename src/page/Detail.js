@@ -33,8 +33,8 @@ const Detail = () => {
     let pogi2 = chinfo[0]?.tags[1];
     let chamname = chinfo[0]?.name;
     let passivelet = chinfo[0]?.passive;
-    let skinsdelete = chinfo[0]?.skins.splice(0, 1);
     let skins = chinfo[0]?.skins;
+   
 
     setchampionskins(skins);
     setpassivein(passivelet);
@@ -71,7 +71,7 @@ const Detail = () => {
                   src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${chamid}_${item.num}.jpg`}
                 />
                 <Carousel.Caption>
-                  <h1>{item.name}</h1>
+                  <h1>{item.name==='default'?championname:item.name}</h1>
                 </Carousel.Caption>
               </Carousel.Item>
             ))}
