@@ -15,7 +15,7 @@ const Detail = () => {
   const [passivein, setpassivein] = useState("");
   let chamid = params.id;
 
-  const championscreen = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${chamid}_0.jpg`;
+  const championscreen = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${chamid}_0.jpg`;
 
   let championapi = async () => {
     let curl = new URL(
@@ -90,7 +90,7 @@ const Detail = () => {
               {skills.map((item) => (
                 <div>
                   <img
-                    src={`http://ddragon.leagueoflegends.com/cdn/13.16.1/img/spell/${item.image.full}`}
+                    src={`https://ddragon.leagueoflegends.com/cdn/13.16.1/img/spell/${item.image.full}`}
                     onClick={() => skillinfo(item)}
                   ></img>
                 </div>

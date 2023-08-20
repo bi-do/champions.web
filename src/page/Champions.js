@@ -11,7 +11,7 @@ const Champions = ({positionstate,setpositionstate}) => {
     let searchquery = query.get("q") || "";
 
     let url = new URL(
-      `http://ddragon.leagueoflegends.com/cdn/13.16.1/data/ko_KR/champion.json?}`
+      `https://ddragon.leagueoflegends.com/cdn/13.16.1/data/ko_KR/champion.json?}`
     );
 
     let response = await fetch(url);
