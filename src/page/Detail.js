@@ -44,7 +44,7 @@ const Detail = () => {
   };
   useEffect(() => {
     championapi();
-  }, [championapi]);
+  }, []);
 
   const skillinfo = (item) => {
     setskillsdescription(item.description);
@@ -79,8 +79,8 @@ const Detail = () => {
 
         <div className="skills">
           <h1>스킬</h1>
-          <div className="skills-intro">
-            <div className="skills-img">
+          <Row className="skills-intro">
+            <Col lg={5} sm={12}className="skills-img">
               <div>
                 <img
                   src={`https://ddragon.leagueoflegends.com/cdn/13.16.1/img/passive/${championpassive}`}
@@ -95,12 +95,12 @@ const Detail = () => {
                   ></img>
                 </div>
               ))}
-            </div>
-            <div className="skill-text">
+            </Col>
+            <Col lg={6} sm={12}className="skill-text">
               <div className="skill-title">{skilltitle}</div>
               {skillsdescription}
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
       </Container>
     </div>

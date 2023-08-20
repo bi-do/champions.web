@@ -8,7 +8,6 @@ const Login = ({setuserlogin,userlogin}) => {
   const gotohome = (event) => {
     event.preventDefault();
     setuserlogin(!userlogin);
-
     navigate("/");
   };
   return (

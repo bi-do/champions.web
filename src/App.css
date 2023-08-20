@@ -6,6 +6,7 @@ body {
   display: flex;
   justify-content: flex-end;
   margin: 20px;
+  cursor: pointer;
 }
 .imgbox {
   text-align: center;
@@ -31,6 +32,7 @@ body {
   position: relative;
   margin-top: 20px;
   font-size: 20px;
+  flex-wrap: wrap;
 }
 
 .search-box {
@@ -127,6 +129,7 @@ body {
   background-color: black;
   color: white;
   margin-top: 5vh;
+  
 }
 .champion-info{
   display: flex;
@@ -153,6 +156,14 @@ body {
   border: 1px solid gray;
   padding: 10px;
   margin-bottom: 40px;
+  width: 80vw;
+}
+
+@media screen and (max-width:500px) {
+  
+  .skills-img img{
+    width: 16vw;
+  }
 }
 
 .position-box{
@@ -189,22 +200,24 @@ body {
 }
 
 .skills-intro{
-width: 100%;
 margin-top: 50px;
 display: flex;
 align-items: center;
+justify-content: space-between;
+width: 100%;
 }
 
 .skills-img{
   display: flex;
   justify-content: space-between;
-  min-width: 40%;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .skills-img img{
   border: 3px solid gray;
   padding: 4px;
+  cursor: pointer;
 
 }
 .skills-img img:hover{
@@ -215,8 +228,7 @@ align-items: center;
 
 .skill-text{
   font-weight: 900;
-  padding-left: 30px;
-  min-height: 150px;
+  min-height: 170px;
 }
 
 .skill-title{
