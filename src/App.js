@@ -6,9 +6,7 @@ import Nav from "./component/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import PrivateRoute from "./Route/PrivateRoute";
-import detail from "./page/Detail";
 import { useEffect } from "react";
-import Detail from "./page/Detail";
 
 function App() {
   const [userlogin, setuserlogin] = useState(false);
