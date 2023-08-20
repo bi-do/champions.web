@@ -44,7 +44,7 @@ const Detail = () => {
   };
   useEffect(() => {
     championapi();
-  }, []);
+  }, [championapi]);
 
   const skillinfo = (item) => {
     setskillsdescription(item.description);

@@ -10,7 +10,7 @@ const Card = (item) => {
     let imgurl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${item.item.id}_0.jpg`
   return (
     <div className='Card-box' onClick={showdetail}>
-        <img src={item!=null&&imgurl}></img>
+        <img src={item!=null&&imgurl} alt={item.item.id}></img>
         <div className='Card-name'>
             <div>{item?.item.name}</div>
         </div>

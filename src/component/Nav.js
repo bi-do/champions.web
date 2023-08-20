@@ -21,7 +21,7 @@ const Nav = (props) => {
         </Link>
       </div>
       <div className="imgbox">
-        <img src="/images/lol-logo.png" height={100}  onClick={gotohome}/>
+        <img src="/images/lol-logo.png" height={100} alt="lol-logo" onClick={gotohome}/>
       </div>
       <div className="position-area">
         <ul className="position-list">
