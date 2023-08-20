@@ -25,7 +25,7 @@ const Detail = () => {
     let cresponse = await fetch(curl);
     let cdata = await cresponse.json();
     let chinfo = Object.values(cdata.data);
-    let chat = chinfo[0]?.blurb || "";
+    let chat = chinfo[0]?.lore || "";
     let skillp = chinfo[0].passive.image.full;
     let skill = chinfo[0]?.spells;
     let pogi1 = chinfo[0]?.tags[0];
